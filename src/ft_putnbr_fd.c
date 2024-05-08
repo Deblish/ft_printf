@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 13:03:15 by aapadill          #+#    #+#             */
-/*   Updated: 2024/04/29 13:57:30 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:36:00 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @return
 */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

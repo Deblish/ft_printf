@@ -6,11 +6,11 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 14:01:36 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:37:30 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 int main(void)
 {

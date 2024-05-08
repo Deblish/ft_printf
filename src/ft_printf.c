@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 14:11:25 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:31:49 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** number of characters printed, negative if error
 */
 
-#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 int ft_printf(const char *format, ...)
 {

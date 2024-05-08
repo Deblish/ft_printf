@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 12:19:40 by aapadill          #+#    #+#             */
-/*   Updated: 2024/04/29 13:56:46 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/08 14:35:35 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @return
 */
 
-#include "libft.h"
+#include "../include/ft_printf.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
