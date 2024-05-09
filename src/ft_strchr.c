@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 16:29:15 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/22 17:57:54 by aapadill          #+#    #+#             */
+/*   Updated: 2024/05/05 12:00:49 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include <stdio.h>
+/*
+** @description
+** 
+** @param
+**
+** @return
+*/
 
-int main(void)
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
 {
-	char ch;
-
-	ch = 'a';
-	ft_printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	write(1, "\n", 1);
-	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	return 0;
+	while (*s && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
+	if (!*s)
+		return (NULL);
+	return ((char *)s);
 }

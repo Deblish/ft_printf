@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 14:31:49 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:01:05 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int ft_printf(const char *format, ...)
 				ft_putchar_fd(va_arg(args, int), 1);
 			if (*c == 'i' || *c == 'd')
 				ft_putnbr_fd(va_arg(args, int), 1);
+			if (*c == 's')
+				ft_putstr_fd(va_arg(args, char *), 1);
 		}
 		else
 			ft_putchar_fd(*c, 1);
