@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:31:58 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:48:30 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_printf(const char *format, ...)
 	count = 0;
 	c = format;
 	va_start(args, format);
-	while(*c)
+	while(*c && *(c + 1))
 	{
 		if (*c == '%')
 		{
