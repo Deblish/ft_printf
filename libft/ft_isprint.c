@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 17:57:54 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/05 12:00:49 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/17 20:49:14 by aapadill          #+#    #+#             */
+/*   Updated: 2024/04/18 21:56:00 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** @description
-** 
-** @param
-**
-** @return
-*/
-
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+int	ft_isprint(int c)
 {
-	while (*s && *s != (char)c)
-		s++;
-	if (*s == (char)c)
-		return ((char *)s);
-	if (!*s)
-		return (NULL);
-	return ((char *)s);
+	if (c < 32 || c > 126)
+		return (0);
+	return (1);
 }

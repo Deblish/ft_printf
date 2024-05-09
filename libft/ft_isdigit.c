@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 12:40:59 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 14:36:24 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/17 13:49:23 by aapadill          #+#    #+#             */
+/*   Updated: 2024/04/23 22:52:11 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** @brief
-** Outputs the string 's' to the given file descriptor.
-**
-** @param
-** s: The string to output
-** fd: The file descriptor on which to write
-**
-** @return
-*/
-
-#include "../include/ft_printf.h"
-void	ft_putstr_fd(char *s, int fd)
+int	ft_isdigit(int c)
 {
-	if (!s)
-		return ;
-	while (*s)
-		write(fd, s++, 1);
+	if (c < 48 || c > 57)
+		return (0);
+	return (1);
 }

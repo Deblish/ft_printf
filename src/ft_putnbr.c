@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:18:32 by aapadill         ###   ########.fr       */
+/*   Created: 2024/05/09 19:07:19 by aapadill          #+#    #+#             */
+/*   Updated: 2024/05/09 20:29:03 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include "../libft/libft.h"
-#include <stdio.h>
 
-int main(void)
+void	ft_putnbr(int n, char *base, int *count)
 {
-	char ch;
+	int base_n;
 
-	ch = 'a';
-	ft_printf("%c, %i, %s, %x, %X", ch, 214, "amosaver", 121121, 121121);
-	write(1, "\n", 1);
-	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	return 0;
+	base_n = ft_strlen(base);
+	if (n < 0)
+	{
+		*count += write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= base_n)
+		ft_putnbr(n / base_n, base, count);
+	*count += write(1, base + (n % base_n), 1);
 }

@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 16:01:05 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:31:58 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,16 @@
 ** number of characters printed, negative if error
 */
 
+#include "../libft/libft.h"
 #include "../include/ft_printf.h"
 
 int ft_printf(const char *format, ...)
 {
 	const char *c;
 	va_list args;
+	int count;
 
+	count = 0;
 	c = format;
 	va_start(args, format);
 	while(*c)
@@ -39,10 +42,22 @@ int ft_printf(const char *format, ...)
 			c++;
 			if (*c == 'c')
 				ft_putchar_fd(va_arg(args, int), 1);
-			if (*c == 'i' || *c == 'd')
-				ft_putnbr_fd(va_arg(args, int), 1);
 			if (*c == 's')
 				ft_putstr_fd(va_arg(args, char *), 1);
+			if (*c == 'p')
+				//pointer
+				ft_putchar_fd(*c, 1);
+			if (*c == 'd' || *c == 'i')
+				ft_putnbr(va_arg(args, int), "0123456789", &count);
+			if (*c == 'u')
+				//unsigned int
+				ft_putchar_fd(*c, 1);
+			if (*c == 'x')
+				ft_putnbr(va_arg(args, int), "0123456789abcdef", &count);
+			if (*c == 'X')
+				ft_putnbr(va_arg(args, int), "0123456789ABCDEF", &count);
+			if (*c == '%')
+				ft_putchar_fd('%', 1);
 		}
 		else
 			ft_putchar_fd(*c, 1);
@@ -51,5 +66,6 @@ int ft_printf(const char *format, ...)
 		//{
 		//}
 	}
+	va_end(args);
 	return (0);
 }

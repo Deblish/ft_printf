@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 13:03:15 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/08 17:04:48 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/30 15:11:35 by aapadill          #+#    #+#             */
+/*   Updated: 2024/04/30 16:24:23 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** @brief
-** Outputs the integer ’n’ to the given file descriptor.
+** Adds the node ’new’ at the beginning of the list
 **
 ** @param
-** n: The integer to output
-** fd: The file descriptor on which to write
+** lst: The address of a pointer to the first link of 
+** a list.
+** new: The address of a pointer to the node to be
+** added to the list.
 **
 ** @return
 */
 
-#include "../include/ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
+	if (new && lst)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		new->next = *lst;
+		*lst = new;
 	}
-	else if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
 }

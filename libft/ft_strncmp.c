@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:18:32 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/23 12:15:04 by aapadill          #+#    #+#             */
+/*   Updated: 2024/04/29 20:53:10 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include "../libft/libft.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+int	ft_strncmp(const char	*s1, const char	*s2, size_t n)
 {
-	char ch;
+	unsigned char	*x1;
+	unsigned char	*x2;
 
-	ch = 'a';
-	ft_printf("%c, %i, %s, %x, %X", ch, 214, "amosaver", 121121, 121121);
-	write(1, "\n", 1);
-	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	return 0;
+	x1 = (unsigned char *)s1;
+	x2 = (unsigned char *)s2;
+	while ((*x1 || *x2) && n)
+	{
+		if (*x1 != *x2)
+			return (*x1 - *x2);
+		x1++;
+		x2++;
+		n--;
+	}
+	return (0);
 }

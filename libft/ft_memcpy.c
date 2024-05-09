@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:18:32 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/21 19:50:47 by aapadill          #+#    #+#             */
+/*   Updated: 2024/04/29 21:34:44 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include "../libft/libft.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char ch;
+	char		*d;
+	const char	*s;
 
-	ch = 'a';
-	ft_printf("%c, %i, %s, %x, %X", ch, 214, "amosaver", 121121, 121121);
-	write(1, "\n", 1);
-	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	return 0;
+	if (!dst && !src)
+		return (0);
+	d = (char *)dst;
+	s = (const char *)src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }

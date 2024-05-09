@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 13:59:39 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:18:32 by aapadill         ###   ########.fr       */
+/*   Created: 2024/04/25 11:31:44 by aapadill          #+#    #+#             */
+/*   Updated: 2024/05/06 22:52:04 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
-#include "../libft/libft.h"
-#include <stdio.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char ch;
+	char	*str;
+	char	*joined;
 
-	ch = 'a';
-	ft_printf("%c, %i, %s, %x, %X", ch, 214, "amosaver", 121121, 121121);
-	write(1, "\n", 1);
-	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
-	return 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	joined = str;
+	while (*s1)
+		*str++ = *s1++;
+	while (*s2)
+		*str++ = *s2++;
+	*str = 0;
+	return (joined);
 }
