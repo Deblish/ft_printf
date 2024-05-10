@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-int    ft_putchar(char c, int *count)
+int    ft_putchar(const char c, int *count)
 {
 	if(write(1, &c, 1))
         (*count)++;

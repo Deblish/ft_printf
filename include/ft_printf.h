@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:26:28 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:31:25 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:04:31 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 # include <limits.h>
 # include <stdarg.h>
 
-int ft_putchar(char c, int *count);
-int ft_putstr(char *s, int *count);
-int	ft_putnbr(int n, char *base, int *count);
+size_t ft_strlen(const char *s);
+int    ft_putchar(const char c, int *count);
+int ft_putstr(const char *s, int *count);
+int	ft_putnbr(int n, const char *base, int *count);
+int	ft_putnbr_u(unsigned int n, const char *base, int *count);
 int ft_printf(const char *format, ...);
 
 #endif

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 19:07:19 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:29:03 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/10 19:47:58 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include "../libft/libft.h"
+//#include "../libft/libft.h"
 
-int	ft_putnbr(int n, char *base, int *count)
+int	ft_putnbr(int n, const char *base, int *count)
 {
 	int base_n;
 

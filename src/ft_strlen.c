@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 13:49:23 by aapadill          #+#    #+#             */
-/*   Updated: 2024/04/23 22:52:11 by aapadill         ###   ########.fr       */
+/*   Created: 2024/05/10 14:50:23 by aapadill          #+#    #+#             */
+/*   Updated: 2024/05/10 14:50:29 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "../include/ft_printf.h"
+
+size_t  ft_strlen(const char *s)
 {
-	if (c < 48 || c > 57)
-		return (0);
-	return (1);
+    size_t len;
+
+    len = 0;
+    while (s[len++])
+        len++;
+    return (len);
 }

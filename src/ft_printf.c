@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:48:30 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:04:55 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** number of characters printed, negative if error
 */
 
-#include "../libft/libft.h"
+//#include "../libft/libft.h"
 #include "../include/ft_printf.h"
 
 int ft_printf(const char *format, ...)
@@ -35,9 +35,9 @@ int ft_printf(const char *format, ...)
 	count = 0;
 	c = format;
 	va_start(args, format);
-	while(*c && *(c + 1))
+	while(*c)
 	{
-		if (*c == '%')
+		if (*c == '%' && *(c + 1))
 		{
 			c++;
 			if (*c == 'c')
@@ -52,8 +52,7 @@ int ft_printf(const char *format, ...)
 			else if (*c == 'd' || *c == 'i')
 				ft_putnbr(va_arg(args, int), "0123456789", &count);
 			else if (*c == 'u')
-				//unsigned int
-				ft_putnbr(va_arg(args, int), "0123456789", &count);
+				ft_putnbr_u(va_arg(args, unsigned int), "0123456789", &count);
 			else if (*c == 'x')
 				ft_putnbr(va_arg(args, int), "0123456789abcdef", &count);
 			else if (*c == 'X')
