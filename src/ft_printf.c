@@ -41,31 +41,30 @@ int ft_printf(const char *format, ...)
 		{
 			c++;
 			if (*c == 'c')
-				ft_putchar_fd(va_arg(args, int), 1);
-			if (*c == 's')
-				ft_putstr_fd(va_arg(args, char *), 1);
-			if (*c == 'p')
-				//pointer
-				ft_putchar_fd(*c, 1);
-			if (*c == 'd' || *c == 'i')
-				ft_putnbr(va_arg(args, int), "0123456789", &count);
-			if (*c == 'u')
-				//unsigned int
-				ft_putchar_fd(*c, 1);
-			if (*c == 'x')
-				ft_putnbr(va_arg(args, int), "0123456789abcdef", &count);
-			if (*c == 'X')
+				ft_putchar(va_arg(args, int), &count);
+			else if (*c == 's')
+				ft_putstr(va_arg(args, char *), &count);
+			else if (*c == 'p')
+			{
+				ft_putstr("0x", &count);
 				ft_putnbr(va_arg(args, int), "0123456789ABCDEF", &count);
-			if (*c == '%')
-				ft_putchar_fd('%', 1);
+			}
+			else if (*c == 'd' || *c == 'i')
+				ft_putnbr(va_arg(args, int), "0123456789", &count);
+			else if (*c == 'u')
+				//unsigned int
+				ft_putnbr(va_arg(args, int), "0123456789", &count);
+			else if (*c == 'x')
+				ft_putnbr(va_arg(args, int), "0123456789abcdef", &count);
+			else if (*c == 'X')
+				ft_putnbr(va_arg(args, int), "0123456789ABCDEF", &count);
+			else if (*c == '%')
+				ft_putchar('%', &count);
 		}
 		else
-			ft_putchar_fd(*c, 1);
+			ft_putchar(*c, &count);
 		c++;
-		//else if (*c == '\\')
-		//{
-		//}
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }

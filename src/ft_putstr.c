@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 14:26:28 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/09 20:31:25 by aapadill         ###   ########.fr       */
+/*   Created: 2024/05/10 14:18:09 by aapadill          #+#    #+#             */
+/*   Updated: 2024/05/10 14:18:22 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-
-int ft_putchar(char c, int *count);
-int ft_putstr(char *s, int *count);
-int	ft_putnbr(int n, char *base, int *count);
-int ft_printf(const char *format, ...);
-
-#endif
+int ft_putstr(char *s, int *count)
+{
+	if (!s)
+		return (-1);
+	while (*s)
+    {
+		if (write(1, s++, 1))
+            (*count)++;
+        else
+            return (-1);
+    }
+    return (1);
+}

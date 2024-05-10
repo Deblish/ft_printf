@@ -13,7 +13,7 @@
 #include "../include/ft_printf.h"
 #include "../libft/libft.h"
 
-void	ft_putnbr(int n, char *base, int *count)
+int	ft_putnbr(int n, char *base, int *count)
 {
 	int base_n;
 
@@ -25,5 +25,9 @@ void	ft_putnbr(int n, char *base, int *count)
 	}
 	if (n >= base_n)
 		ft_putnbr(n / base_n, base, count);
-	*count += write(1, base + (n % base_n), 1);
+	if (write(1, base + (n % base_n), 1))
+		(*count)++;
+	else
+		return (-1);
+	return (1);
 }

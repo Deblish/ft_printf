@@ -16,10 +16,10 @@
 
 int main(void)
 {
-	char ch;
+	char c;
 
-	ch = 'a';
-	ft_printf("%c, %i, %s, %x, %X", ch, 214, "amosaver", 121121, 121121);
+	c = 'a';
+	ft_printf("%c, %s, %p, \n%d, %i, %u, %x, %X, %%", c, "test", &c, 1000, 2000, 3000, 4000);
 	write(1, "\n", 1);
 	//printf("%c, %i, %s, string2: %s", ch, 2147483649, "amosaver", "segundo string");
 	return 0;
