@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/10 16:04:55 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 08:35:46 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ int ft_printf(const char *format, ...)
 			else if (*c == 'p')
 			{
 				ft_putstr("0x", &count);
-				ft_putnbr(va_arg(args, int), "0123456789ABCDEF", &count);
+				ft_putnbr(va_arg(args, long), "0123456789abcdef", &count);
 			}
 			else if (*c == 'd' || *c == 'i')
 				ft_putnbr(va_arg(args, int), "0123456789", &count);
 			else if (*c == 'u')
-				ft_putnbr_u(va_arg(args, unsigned int), "0123456789", &count);
+				ft_putnbr((unsigned int)va_arg(args, int), "0123456789", &count);
 			else if (*c == 'x')
-				ft_putnbr(va_arg(args, int), "0123456789abcdef", &count);
+				ft_putnbr((unsigned int)va_arg(args, int), "0123456789abcdef", &count);
 			else if (*c == 'X')
-				ft_putnbr(va_arg(args, int), "0123456789ABCDEF", &count);
+				ft_putnbr((unsigned int)va_arg(args, int), "0123456789ABCDEF", &count);
 			else if (*c == '%')
 				ft_putchar('%', &count);
 		}
