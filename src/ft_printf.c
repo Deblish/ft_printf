@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 18:03:58 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:06:16 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@
 
 #include "../include/ft_printf.h"
 
+int	ft_printf_helper(const char *c, va_list args, int *count)
+{
+	if ((*c == 'c' && !ft_putchar(va_arg(args, int), count))
+		|| (*c == 's' && !ft_putstr(va_arg(args, char *), count))
+		|| (*c == 'p' && (!ft_putstr("0x", count) || !ft_putnbr_u(va_arg(args, unsigned long), "0123456789abcdef", count)))
+		|| ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), "0123456789", count))
+		|| (*c == 'u' && !ft_putnbr(va_arg(args, unsigned int), "0123456789", count))
+		|| (*c == 'x' && !ft_putnbr(va_arg(args, unsigned int), "0123456789abcdef", count))
+		|| (*c == 'X' && !ft_putnbr(va_arg(args, unsigned int), "0123456789ABCDEF", count))
+		|| (*c == '%' && !ft_putchar('%', count)))
+		return (0);
+	else
+		return (1);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	const char	*c;
@@ -38,14 +53,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*c == '%' && *(c + 1) && c++)
 		{
-			if ((*c == 'c' && !ft_putchar(va_arg(args, int), &count))
-				|| (*c == 's' && !ft_putstr(va_arg(args, char *), &count))
-				|| (*c == 'p' && (!ft_putstr("0x", &count) || !ft_putnbr_u((unsigned long)va_arg(args, long), "0123456789abcdef", &count)))
-				|| ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), "0123456789", &count))
-				|| (*c == 'u' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789", &count))
-				|| (*c == 'x' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789abcdef", &count))
-				|| (*c == 'X' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789ABCDEF", &count))
-				|| (*c == '%' && !ft_putchar('%', &count)))
+			if (!ft_printf_helper(c, args, &count))
 				break ;
 		}
 		else if (!ft_putchar(*c, &count))
