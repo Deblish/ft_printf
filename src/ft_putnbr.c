@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 19:07:19 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 17:20:01 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:54:19 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	ft_putnbr(long n, const char *base, int *count)
 {
-	static char base_n;
+	static char	base_n;
 
 	base_n = 0;
 	if (!base_n)
