@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 11:52:05 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:48:17 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_printf(const char *format, ...)
 {
 	const char	*c;
 	va_list		args;
-	int			count;
+	int		count;
 
 	count = 0;
 	c = format;
@@ -40,28 +40,25 @@ int	ft_printf(const char *format, ...)
 		if (*c == '%' && *(c + 1))
 		{
 			c++;
-			if (*c == 'c' && !ft_putchar(va_arg(args, int), &count))
-				break;
-			else if (*c == 's' && !ft_putstr(va_arg(args, char *), &count))
-				break;
-			else if (*c == 'p')
-			{
-				ft_putstr("0x", &count);
-				ft_putnbr_u((unsigned long)va_arg(args, long), "0123456789abcdef", &count);
-			}
-			else if ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), "0123456789", &count))
-				break;
-			else if (*c == 'u' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789", &count))
-				break;
-			else if (*c == 'x' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789abcdef", &count))
-				break;
-			else if (*c == 'X' && !ft_putnbr((unsigned int)va_arg(args, int), "0123456789ABCDEF", &count))
-				break;
-			else if (*c == '%' && !ft_putchar('%', &count))
-				break;
+			if (*c == 'c' && -1 == ft_putchar(va_arg(args, int), &count))
+				return (-1);
+			else if (*c == 's' && -1 == ft_putstr(va_arg(args, char *), &count))
+				return (-1);
+			else if (*c == 'p' && (-1 == ft_putstr("0x", &count) || -1 == ft_putnbr_u((unsigned long)va_arg(args, long), "0123456789abcdef", &count)))
+				return (-1);
+			else if ((*c == 'd' || *c == 'i') && -1 == ft_putnbr(va_arg(args, int), "0123456789", &count))
+				return (-1);
+			else if (*c == 'u' && -1 == ft_putnbr((unsigned int)va_arg(args, int), "0123456789", &count))
+				return (-1);
+			else if (*c == 'x' && -1 == ft_putnbr((unsigned int)va_arg(args, int), "0123456789abcdef", &count))
+				return (-1);
+			else if (*c == 'X' && -1 == ft_putnbr((unsigned int)va_arg(args, int), "0123456789ABCDEF", &count))
+				return (-1);
+			else if (*c == '%' && -1 == ft_putchar('%', &count))
+				return (-1);
 		}
-		else if (!ft_putchar(*c, &count))
-			break;
+		else if (-1 == ft_putchar(*c, &count))
+			return (-1);
 		c++;
 	}
 	va_end(args);

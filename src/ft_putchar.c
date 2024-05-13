@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:29:20 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 09:58:44 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:53:54 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	ft_putchar(const char c, int *count)
 {
-	if (write(1, &c, 1))
+	if (write(1, &c, 1) != -1)
 		(*count)++;
 	else
+	{
+		*count = -1;
 		return (-1);
+	}
 	return (1);
 }

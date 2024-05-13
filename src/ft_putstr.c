@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:18:09 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 10:57:15 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:14:49 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@ int	ft_putstr(const char *s, int *count)
 		*count += write(1, "(null)", 6);
 	while (s && *s)
 	{
-		if (write(1, s++, 1))
-			(*count)++;
+		//if (write(1, s++, 1))
+		//(*count)++;
+		//else
+		//{
+		//	*count = -1;
+		//	return (-1);
+		//}
+		if (ft_putchar(*s, count) != -1)
+			s++;
 		else
-		{
-			break;
 			return (-1);
-		}
 	}
 	return (1);
 }
