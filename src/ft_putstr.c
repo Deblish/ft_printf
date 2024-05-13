@@ -6,22 +6,25 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 14:18:09 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 09:00:11 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:57:15 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int ft_putstr(const char *s, int *count)
+int	ft_putstr(const char *s, int *count)
 {
 	if (!s)
-		return (0);
-	while (*s)
-    {
+		*count += write(1, "(null)", 6);
+	while (s && *s)
+	{
 		if (write(1, s++, 1))
-            (*count)++;
-        else
-            return (-1);
-    }
-    return (1);
+			(*count)++;
+		else
+		{
+			break;
+			return (-1);
+		}
+	}
+	return (1);
 }

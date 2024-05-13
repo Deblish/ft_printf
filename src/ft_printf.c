@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 08:35:46 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:12:34 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@
 //#include "../libft/libft.h"
 #include "../include/ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
-	const char *c;
-	va_list args;
-	int count;
+	const char	*c;
+	va_list		args;
+	int			count;
 
 	count = 0;
 	c = format;
 	va_start(args, format);
-	while(*c)
+	while (*c)
 	{
 		if (*c == '%' && *(c + 1))
 		{
@@ -47,7 +47,7 @@ int ft_printf(const char *format, ...)
 			else if (*c == 'p')
 			{
 				ft_putstr("0x", &count);
-				ft_putnbr(va_arg(args, long), "0123456789abcdef", &count);
+				ft_putnbr_u((unsigned long)va_arg(args, long), "0123456789abcdef", &count);
 			}
 			else if (*c == 'd' || *c == 'i')
 				ft_putnbr(va_arg(args, int), "0123456789", &count);
@@ -67,4 +67,3 @@ int ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
