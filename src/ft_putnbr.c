@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 19:07:19 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 15:54:42 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:20:01 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_putnbr(long n, const char *base, int *count)
 	}
 	if (n >= base_n)
 		ft_putnbr(n / base_n, base, count);
-	if (*count == -1 || ft_putchar(base[n % base_n], count) == -1)
-		return (-1);
+	if (*count == -1 || !ft_putchar(base[n % base_n], count))
+		return (0);
 	return (1);
 }

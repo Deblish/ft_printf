@@ -6,7 +6,7 @@ EXECUTABLE = test
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 #-Wsign-conversion
 
 # Directory locations
