@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/14 11:48:09 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:04:17 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,37 @@
 
 #include "../include/ft_printf.h"
 
-//int	ft_printf_helper(const char *c, va_list args, int *count)
-//{
-//}
+int	ft_printf_helper(const char *c, va_list args, int *i)
+{
+	return ((*c == 'c' && !ft_putchar(va_arg(args, int), i))
+		|| (*c == 's' && !ft_putstr(va_arg(args, char *), i))
+		|| (*c == 'p' && (!ft_putstr("0x", i)
+				|| !ft_putnbr_u(va_arg(args, unsigned long), H, i)))
+		|| (*c == 'd' && !ft_putnbr(va_arg(args, int), D, i))
+		|| (*c == 'i' && !ft_putnbr(va_arg(args, int), D, i))
+		|| (*c == 'u' && !ft_putnbr(va_arg(args, unsigned int), D, i))
+		|| (*c == 'x' && !ft_putnbr(va_arg(args, unsigned int), H, i))
+		|| (*c == 'X' && !ft_putnbr(va_arg(args, unsigned int), HX, i))
+		|| (*c == '%' && !ft_putchar('%', i)));
+}
 
 int	ft_printf(const char *format, ...)
 {
-	const char	*c;
 	va_list		args;
 	int			i;
 
 	i = 0;
-	c = format;
 	va_start(args, format);
-	while (*c)
+	while (*format)
 	{
-		if (*c == '%' && *(c + 1) && c++)
+		if (*format == '%' && *(format + 1) && format++)
 		{
-			if ((*c == 'c' && !ft_putchar(va_arg(args, int), &i))
-				|| (*c == 's' && !ft_putstr(va_arg(args, char *), &i))
-				|| (*c == 'p' && (!ft_putstr("0x", &i)
-						|| !ft_putnbr_u(va_arg(args, unsigned long), H, &i)))
-				|| ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), D, &i))
-				|| (*c == 'u' && !ft_putnbr(va_arg(args, unsigned int), D, &i))
-				|| (*c == 'x' && !ft_putnbr(va_arg(args, unsigned int), H, &i))
-				|| (*c == 'X' && !ft_putnbr(va_arg(args, unsigned int), HX, &i))
-				|| (*c == '%' && !ft_putchar('%', &i)))
+			if (ft_printf_helper(format, args, &i))
 				break ;
 		}
-		else if (!ft_putchar(*c, &i))
+		else if (!ft_putchar(*format, &i))
 			break ;
-		c++;
+		format++;
 	}
 	va_end(args);
 	return (i);
