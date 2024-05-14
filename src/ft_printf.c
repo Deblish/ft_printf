@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/14 10:39:21 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:57:17 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,30 @@ int	ft_printf(const char *format, ...)
 {
 	const char	*c;
 	va_list		args;
-	int			count;
+	int			i;
 
-	count = 0;
+	i = 0;
 	c = format;
 	va_start(args, format);
 	while (*c)
 	{
 		if (*c == '%' && *(c + 1) && c++)
 		{
-			if ((*c == 'c' && !ft_putchar(va_arg(args, int), &count))
-				|| (*c == 's' && !ft_putstr(va_arg(args, char *), &count))
-				|| (*c == 'p' && (!ft_putstr("0x", &count)
-						|| !ft_putnbr_u((unsigned long)va_arg(args, long), HEX, &count)))
-				|| ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), DEC, &count))
-				|| (*c == 'u' && !ft_putnbr((unsigned int)va_arg(args, int), DEC, &count))
-				|| (*c == 'x' && !ft_putnbr((unsigned int)va_arg(args, int), HEX, &count))
-				|| (*c == 'X' && !ft_putnbr((unsigned int)va_arg(args, int), HXX, &count))
-				|| (*c == '%' && !ft_putchar('%', &count)))
+			if ((*c == 'c' && !ft_putchar(va_arg(args, int), &i))
+				|| (*c == 's' && !ft_putstr(va_arg(args, char *), &i))
+				|| (*c == 'p' && (!ft_putstr("0x", &i)
+						|| !ft_putnbr_u(va_arg(args, unsigned long), H, &i)))
+				|| ((*c == 'd' || *c == 'i') && !ft_putnbr(va_arg(args, int), D, &i))
+				|| (*c == 'u' && !ft_putnbr(va_arg(args, unsigned int), D, &i))
+				|| (*c == 'x' && !ft_putnbr(va_arg(args, unsigned int), H, &i))
+				|| (*c == 'X' && !ft_putnbr(va_arg(args, unsigned int), HX, &i))
+				|| (*c == '%' && !ft_putchar('%', &i)))
 				break ;
 		}
-		else if (!ft_putchar(*c, &count))
+		else if (!ft_putchar(*c, &i))
 			break ;
 		c++;
 	}
 	va_end(args);
-	return (count);
+	return (i);
 }
