@@ -6,7 +6,7 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:33:52 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/14 13:04:17 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:27:06 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #include "../include/ft_printf.h"
 
-int	ft_printf_helper(const char *c, va_list args, int *i)
+static int	ft_printf_helper(const char *c, va_list args, int *i)
 {
 	return ((*c == 'c' && !ft_putchar(va_arg(args, int), i))
 		|| (*c == 's' && !ft_putstr(va_arg(args, char *), i))
