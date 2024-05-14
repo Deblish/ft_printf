@@ -6,13 +6,15 @@
 /*   By: aapadill <aapadill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 14:26:28 by aapadill          #+#    #+#             */
-/*   Updated: 2024/05/13 10:50:36 by aapadill         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:38:57 by aapadill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
+# define HEX "0123456789abcdef"
+# define DEC "0123456789"
+# define HXX "0123456789ABCDEF"
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
