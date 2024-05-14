@@ -13,13 +13,13 @@ CFLAGS = -Wall -Wextra -Werror
 INC_DIR = ./include
 SRC_DIR = ./src
 
-#Finding all .c files in src and libft directories
-SRC_SOURCES = ft_printf.c \
-			  ft_putnbr.c \
-			  ft_putstr.c \
-			  ft_putchar.c \
-			  ft_putnbr_u.c \
-			  ft_strlen.c
+#Finding all .c files in src directory
+SRC_SOURCES = $(SRC_DIR)/ft_printf.c \
+			  $(SRC_DIR)/ft_putnbr.c \
+			  $(SRC_DIR)/ft_putstr.c \
+			  $(SRC_DIR)/ft_putchar.c \
+			  $(SRC_DIR)/ft_putnbr_u.c \
+			  $(SRC_DIR)/ft_strlen.c
 
 #Converting .c filenames to .o for both src and libft
 SRC_OBJECTS = $(SRC_SOURCES:.c=.o)
