@@ -21,7 +21,7 @@ SRC_SOURCES = $(SRC_DIR)/ft_printf.c \
 			  $(SRC_DIR)/ft_putnbr_u.c \
 			  $(SRC_DIR)/ft_strlen.c
 
-#Converting .c filenames to .o for both src and libft
+#Converting .c filenames to .o
 SRC_OBJECTS = $(SRC_SOURCES:.c=.o)
 
 #Default target
@@ -39,7 +39,7 @@ $(NAME): $(SRC_OBJECTS)
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 #Linking all object files to create the executable
-$(EXECUTABLE): $(SRC_OBJECTS) $(LIBFT_OBJECTS)
+$(EXECUTABLE): $(SRC_OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 #Cleaning up object files in both src and libft directories
